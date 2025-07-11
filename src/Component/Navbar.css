@@ -1,0 +1,71 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  background-color: #1e3a8a;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #93c5fd;
+}
+
+.toggle-btn {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.toggle-btn:hover {
+  background-color: white;
+  color: #1e3a8a;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark-mode .navbar {
+  background-color: #1f2937;
+}
+
+body.dark-mode .nav-links a {
+  color: #f3f4f6;
+}
+
+body.dark-mode .toggle-btn {
+  border-color: #f3f4f6;
+  color: #f3f4f6;
+}

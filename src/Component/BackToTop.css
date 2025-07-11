@@ -1,0 +1,24 @@
+.back-to-top {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  font-size: 24px;
+  padding: 10px;
+  border: none;
+  border-radius: 50%;
+  background-color: #1e3a8a;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s;
+  z-index: 999;
+}
+
+.back-to-top:hover {
+  transform: scale(1.2);
+}
+
+/* Dark mode styling */
+body.dark-mode .back-to-top {
+  background-color: #374151;
+}

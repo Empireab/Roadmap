@@ -1,0 +1,23 @@
+.react-section {
+  background-color: #f3e8ff;
+  padding: 50px 15px;
+  border-top-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+}
+
+.react-section .card {
+  background-color: #e9d5ff;
+  color: #6b21a8;
+}
+
+.react-section .card:hover {
+  background-color: #d8b4fe;
+}
+
+.react-section .progress-bar {
+  background-color: #a855f7;
+}
+
+.react-section .blog-section {
+  background-color: #faf5ff;
+}

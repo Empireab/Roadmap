@@ -1,0 +1,49 @@
+import { useState, useEffect } from 'react'
+import './App.css'
+import BackToTop from './Component/BackToTop'
+import JavascriptSection from './Component/JavascriptSection'
+import Navbar from './Component/Navbar'
+import ReactSection from './Component/ReactSection'
+import Section from './Component/Section'
+import Section2 from './Component/Section2'
+import WhatsappButton from './Component/WhatsappButton'
+import Loader from './Component/Loader'
+import SearchBar from './Component/SearchBar'
+
+function App() {
+  const [loading, setLoading] = useState(true)
+  const [search, setSearch] = useState('')
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 2000)
+    return () => clearTimeout(timer)
+  }, [])
+    const handleSearchChange = (e) => {
+    setSearch(e.target.value)
+  }
+
+
+  return (
+    <>
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <Navbar />
+          <SearchBar keyword={search} onChange={handleSearchChange}/>
+          <Section  search={search}/>
+          <Section2 search={search} />
+          <JavascriptSection search={search} />
+          <ReactSection  search={search}/>
+          <WhatsappButton />
+          <BackToTop />
+          <footer style={{ textAlign: 'center', padding: '30px', color: '#888' }}>
+            © {new Date().getFullYear()} Full Stack Roadmap by Abraham Ab
+          </footer>
+        </>
+      )}
+    </>
+  )
+}
+
+export default App

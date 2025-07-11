@@ -1,0 +1,23 @@
+.js-section {
+  background-color: #fff7ed;
+  padding: 50px 15px;
+  border-top-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+}
+
+.js-section .card {
+  background-color: #fde68a;
+  color: #78350f;
+}
+
+.js-section .card:hover {
+  background-color: #fcd34d;
+}
+
+.js-section .progress-bar {
+  background-color: #f59e0b;
+}
+
+.js-section .blog-section {
+  background-color: #fffbeb;
+}
