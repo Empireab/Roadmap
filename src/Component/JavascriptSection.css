@@ -1,23 +1,141 @@
 .js-section {
-  background-color: #fff7ed;
-  padding: 50px 15px;
-  border-top-right-radius: 40px;
-  border-bottom-left-radius: 40px;
+  padding: 60px 20px;
+  background: linear-gradient(to right, #ecfdf5, #d1fae5);
+  border-left: 6px solid #10b981;
+  border-radius: 40px;
+  margin: 40px 20px;
 }
 
-.js-section .card {
-  background-color: #fde68a;
-  color: #78350f;
+.js-section-title {
+  text-align: center;
+  font-size: 28px;
+  color: #047857;
+  margin-bottom: 30px;
 }
 
-.js-section .card:hover {
-  background-color: #fcd34d;
+.js-progress-container {
+  background: #bbf7d0;
+  border-radius: 10px;
+  height: 20px;
+  overflow: hidden;
+  margin: 20px auto;
+  max-width: 500px;
 }
 
-.js-section .progress-bar {
-  background-color: #f59e0b;
+.js-progress-bar {
+  height: 100%;
+  background-color: #10b981;
+  transition: width 0.3s ease;
 }
 
-.js-section .blog-section {
-  background-color: #fffbeb;
+.js-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.js-card {
+  background: #ecfdf5;
+  padding: 20px 30px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 4px 8px rgba(16, 185, 129, 0.2);
+}
+
+.js-card:hover {
+  background-color: #6ee7b7;
+  color: white;
+}
+
+.js-card.completed {
+  border-left: 5px solid #2563eb;
+  background-color: #e0f2fe;
+}
+
+.js-blog-section {
+  margin-top: 40px;
+  background-color: #f0fdf4;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.js-blog-section a {
+  text-decoration: none;
+  color: #047857;
+}
+
+.js-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.5);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.js-modal-box {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  max-width: 400px;
+}
+/* 🌙 Dark Mode - JavaScript Section */
+body.dark-mode .js-section {
+  background: #102027;
+  border-color: #10b981;
+}
+
+body.dark-mode .js-section-title {
+  color: #34d399;
+}
+
+body.dark-mode .js-card {
+  background-color: #1c2b2f;
+  color: #e0f2f1;
+}
+
+body.dark-mode .js-card:hover {
+  background-color: #10b981;
+  color: white;
+}
+
+body.dark-mode .js-blog-section {
+  background-color: #1a2e25;
+}
+
+body.dark-mode .js-blog-section a {
+  color: #6ee7b7;
+}
+
+body.dark-mode .js-modal-box {
+  background-color: #102027;
+  color: #e0f2f1;
+}
+
+body.dark-mode .js-progress-container {
+  background-color: #334d4c;
+}
+
+body.dark-mode .js-progress-bar {
+  background-color: #10b981;
+}
+/* ✨ Highlight matched topic */
+.js-card.matched {
+  border: 2px solid #10b981;
+  background-color: #d1fae5;
+  font-weight: bold;
+  transform: scale(1.02);
+}
+
+/* 🌙 Dark Mode Support */
+body.dark-mode .js-card.matched {
+  background-color: #064e3b;
+  border-color: #34d399;
 }

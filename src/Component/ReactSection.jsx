@@ -1,66 +1,85 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import './ReactSection.css'
 
 const reactTopics = [
-  { title: '⚛ JSX & Components', content: 'JSX lets you write HTML in JS. Components are reusable UI blocks.', complete: true },
-  { title: '🔄 Props & State', content: 'Props are data from parent. State is local data for components.', complete: true },
-  { title: '📦 useEffect Hook', content: 'Run side effects like fetching data or updating DOM.', complete: false },
-  { title: '🧱 React Router', content: 'Handle multi-page routing with React Router.', complete: false },
-  { title: '🪝 Custom Hooks', content: 'Create your own reusable logic with custom hooks.', complete: false },
-  { title: '🧠 useContext & useReducer', content: 'Manage complex state and shared data easily.', complete: false }
+  { title: '⚛ JSX & Components', content: 'JSX lets you write HTML in JavaScript.', complete: true },
+  { title: '🔄 Props & State', content: 'Props are inputs; state stores dynamic data.', complete: true },
+  { title: '📦 useEffect Hook', content: 'Handles side effects like API calls.', complete: false },
+  { title: '🧩 Component Lifecycle', content: 'Understand mounting, updating, unmounting.', complete: false },
+  { title: '🪝 Custom Hooks', content: 'Reusable logic in functional components.', complete: false },
+  { title: '📁 Routing with React Router', content: 'Navigate between views with routing.', complete: false }
 ]
 
-const ReactSection = ({ search }) => {
+const ReactSection = ({ search,setMatchFound  }) => {
   const [selected, setSelected] = useState(null)
-  const filtered = reactTopics.filter(item =>
-    item.title.toLowerCase().includes(search.toLowerCase())
+  const cardRefs = useRef([])
+
+  const lowerSearch = search.toLowerCase()
+
+useEffect(() => {
+  const lowerSearch = search.toLowerCase()
+
+  if (!search.trim()) {
+    setMatchFound(true) // Reset match state
+    return
+  }
+
+  const firstMatchIndex = reactTopics.findIndex(topic =>
+    topic.title.toLowerCase().includes(lowerSearch)
   )
-  const completedCount = reactTopics.filter(item => item.complete).length
-  const total = reactTopics.length
-  const percentage = Math.round((completedCount / total) * 100)
+
+  if (firstMatchIndex !== -1 && cardRefs.current[firstMatchIndex]) {
+    setMatchFound(true)
+    cardRefs.current[firstMatchIndex].scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    })
+  } else {
+    setMatchFound(false)
+  }
+}, [search, setMatchFound])
+
+  const completedCount = reactTopics.filter(t => t.complete).length
+  const percentage = Math.round((completedCount / reactTopics.length) * 100)
 
   return (
     <section className="react-section" id="react">
-      <h2 className="section-title">⚛ React Roadmap</h2>
+      <h2 className="react-section-title">⚛ React Roadmap</h2>
 
-      {/* Progress Bar */}
-      <div className="progress-container">
-        <div className="progress-bar" style={{ width: `${percentage}%` }}></div>
+      <div className="react-progress-container">
+        <div className="react-progress-bar" style={{ width: `${percentage}%` }}></div>
         <p>{percentage}% Complete</p>
       </div>
 
-      {/* Roadmap Cards */}
-      <div className="cards-container">
-        {filtered.length > 0 ? (
-          filtered.map((item, index) => (
+      <div className="react-cards-container">
+        {reactTopics.map((topic, index) => {
+          const isMatch = topic.title.toLowerCase().includes(lowerSearch)
+
+          return (
             <div
               key={index}
-              className={`card ${item.complete ? 'completed' : ''}`}
-              onClick={() => setSelected(item)}
-              title="Click to learn more"
+              ref={el => cardRefs.current[index] = el}
+              className={`react-card ${topic.complete ? 'completed' : ''} ${isMatch && search ? 'matched' : ''}`}
+              onClick={() => setSelected(topic)}
             >
-              {item.title}
+              {topic.title}
             </div>
-          ))
-        ) : (
-          <p style={{ textAlign: 'center' }}>No matching topics found.</p>
-        )}
+          )
+        })}
       </div>
 
-      {/* Articles */}
-      <div className="blog-section">
+      <div className="react-blog-section">
         <h3>📚 Related Articles</h3>
         <ul>
-          <li><a href="#">⚛ How JSX Really Works in React</a></li>
-          <li><a href="#">🔄 Difference Between Props and State</a></li>
-          <li><a href="#">🚀 What useEffect is Doing Behind the Scenes</a></li>
+          <li><a href="#">🔍 Understanding JSX in React</a></li>
+          <li><a href="#">🧠 When to Use useEffect</a></li>
+          <li><a href="#">🚀 Beginner’s Guide to React Router</a></li>
         </ul>
       </div>
 
-      {/* Modal */}
       {selected && (
-        <div className="modal-overlay" onClick={() => setSelected(null)}>
-          <div className="modal-box" onClick={(e) => e.stopPropagation()}>
+        <div className="react-modal-overlay" onClick={() => setSelected(null)}>
+          <div className="react-modal-box" onClick={(e) => e.stopPropagation()}>
             <h3>{selected.title}</h3>
             <p>{selected.content}</p>
             <button onClick={() => setSelected(null)}>Close</button>

@@ -1,20 +1,37 @@
 .css-section {
   padding: 60px 20px;
-  background: linear-gradient(to bottom, #eef6ff, #d6e6ff);
-  border-top-right-radius: 60px;
-  border-bottom-left-radius: 60px;
-  border-top: 6px solid #60a5fa;
-  border-right: 6px solid #60a5fa;
-  border-bottom: 6px solid transparent;
-  border-left: 6px solid transparent;
+  background: linear-gradient(to right, #fef6f9, #ffe2ed);
+  border-left: 6px solid #ec4899;
+  border-radius: 40px;
   margin: 40px 20px;
-  transition: background 0.3s ease;
 }
 
 .css-section-title {
   text-align: center;
   font-size: 28px;
+  color: #be185d;
   margin-bottom: 30px;
+}
+
+.css-progress-container {
+  background: #fbcfe8;
+  border-radius: 10px;
+  height: 20px;
+  overflow: hidden;
+  margin: 20px auto;
+  max-width: 500px;
+}
+
+.css-progress-bar {
+  height: 100%;
+  background-color: #ec4899;
+  transition: width 0.3s ease;
+}
+
+.css-progress-container p {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
 }
 
 .css-cards-container {
@@ -25,32 +42,104 @@
 }
 
 .css-card {
-  background-color: white;
+  background: #fff0f5;
   padding: 20px 30px;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   font-size: 18px;
   font-weight: 500;
-  transition: transform 0.3s, background 0.3s;
   cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 4px 8px rgba(236, 72, 153, 0.2);
 }
 
 .css-card:hover {
-  background-color: #dbeafe;
-  transform: translateY(-5px);
+  background-color: #f9a8d4;
+  color: white;
 }
 
-/* Dark Mode Styles */
+.css-card.completed {
+  border-left: 5px solid #16a34a;
+  background-color: #f0fdf4;
+}
+
+.css-blog-section {
+  margin-top: 40px;
+  background-color: #fff7fb;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.css-blog-section a {
+  text-decoration: none;
+  color: #db2777;
+}
+
+.css-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.5);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.css-modal-box {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  max-width: 400px;
+}
+/* 🌙 Dark Mode - CSS Section */
 body.dark-mode .css-section {
-  background: #1e293b;
-  border-color: #60a5fa;
+  background: #1e1e2f;
+  border-color: #ec4899;
+}
+
+body.dark-mode .css-section-title {
+  color: #f9a8d4;
 }
 
 body.dark-mode .css-card {
-  background-color: #2a2a2a;
-  color: #f3f4f6;
+  background-color: #2a2a3d;
+  color: #f9fafb;
 }
 
 body.dark-mode .css-card:hover {
-  background-color: #3b3b3b;
+  background-color: #ec4899;
+  color: #ffffff;
+}
+
+body.dark-mode .css-blog-section {
+  background-color: #2e2e42;
+}
+
+body.dark-mode .css-blog-section a {
+  color: #f472b6;
+}
+
+body.dark-mode .css-modal-box {
+  background-color: #1e1e2f;
+  color: #f9fafb;
+}
+
+body.dark-mode .css-progress-container {
+  background-color: #4b5563;
+}
+
+body.dark-mode .css-progress-bar {
+  background-color: #ec4899;
+}
+.css-card.matched {
+  border: 2px solid #ec4899;
+  background-color: #ffe4f1;
+  font-weight: bold;
+  transform: scale(1.02);
+}
+
+body.dark-mode .css-card.matched {
+  background-color: #4c1d95;
+  border-color: #f472b6;
 }

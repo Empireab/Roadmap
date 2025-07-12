@@ -13,6 +13,7 @@ import SearchBar from './Component/SearchBar'
 function App() {
   const [loading, setLoading] = useState(true)
   const [search, setSearch] = useState('')
+  const [matchFound, setMatchFound] = useState(true)
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 2000)
@@ -29,16 +30,22 @@ function App() {
         <Loader />
       ) : (
         <>
+        
           <Navbar />
-          <SearchBar keyword={search} onChange={handleSearchChange}/>
-          <Section  search={search}/>
-          <Section2 search={search} />
-          <JavascriptSection search={search} />
-          <ReactSection  search={search}/>
+          
+          
+         
+<div className='main-content'>
+          <Section  search={search} setMatchFound={setMatchFound}/>
+          <Section2 search={search} setMatchFound = {setMatchFound} />
+          <JavascriptSection search={search}setMatchFound = {setMatchFound} />
+          <ReactSection  search={search} setMatchFound = {setMatchFound}/>
+          </div>
           <WhatsappButton />
           <BackToTop />
           <footer style={{ textAlign: 'center', padding: '30px', color: '#888' }}>
             © {new Date().getFullYear()} Full Stack Roadmap by Abraham Ab
+            
           </footer>
         </>
       )}

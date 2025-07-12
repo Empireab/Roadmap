@@ -1,23 +1,148 @@
 .react-section {
-  background-color: #f3e8ff;
-  padding: 50px 15px;
-  border-top-right-radius: 40px;
-  border-bottom-left-radius: 40px;
+  padding: 60px 20px;
+  background: linear-gradient(to right, #f0f9ff, #e0f2fe);
+  border-left: 6px solid #3b82f6;
+  border-radius: 40px;
+  margin: 40px 20px;
 }
 
-.react-section .card {
-  background-color: #e9d5ff;
-  color: #6b21a8;
+.react-section-title {
+  text-align: center;
+  font-size: 28px;
+  color: #1d4ed8;
+  margin-bottom: 30px;
 }
 
-.react-section .card:hover {
-  background-color: #d8b4fe;
+.react-progress-container {
+  background: #bfdbfe;
+  border-radius: 10px;
+  height: 20px;
+  overflow: hidden;
+  margin: 20px auto;
+  max-width: 500px;
 }
 
-.react-section .progress-bar {
-  background-color: #a855f7;
+.react-progress-bar {
+  height: 100%;
+  background-color: #3b82f6;
+  transition: width 0.3s ease;
 }
 
-.react-section .blog-section {
-  background-color: #faf5ff;
+.react-progress-container p {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
 }
+
+.react-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.react-card {
+  background: #eff6ff;
+  padding: 20px 30px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.2);
+}
+
+.react-card:hover {
+  background-color: #93c5fd;
+  color: white;
+}
+
+.react-card.completed {
+  border-left: 5px solid #16a34a;
+  background-color: #f0fdf4;
+}
+
+.react-blog-section {
+  margin-top: 40px;
+  background-color: #f0f9ff;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.react-blog-section a {
+  text-decoration: none;
+  color: #2563eb;
+}
+
+.react-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.5);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.react-modal-box {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  max-width: 400px;
+}
+/* 🌙 Dark Mode - React Section */
+body.dark-mode .react-section {
+  background: #0f172a;
+  border-color: #3b82f6;
+}
+
+body.dark-mode .react-section-title {
+  color: #60a5fa;
+}
+
+body.dark-mode .react-card {
+  background-color: #1e293b;
+  color: #f8fafc;
+}
+
+body.dark-mode .react-card:hover {
+  background-color: #3b82f6;
+  color: #ffffff;
+}
+
+body.dark-mode .react-blog-section {
+  background-color: #1e293b;
+}
+
+body.dark-mode .react-blog-section a {
+  color: #60a5fa;
+}
+
+body.dark-mode .react-modal-box {
+  background-color: #0f172a;
+  color: #f8fafc;
+}
+
+body.dark-mode .react-progress-container {
+  background-color: #1e3a8a;
+}
+
+body.dark-mode .react-progress-bar {
+  background-color: #3b82f6;
+}
+/* ✨ Highlight matched topic */
+.react-card.matched {
+  border: 2px solid #3b82f6;
+  background-color: #dbeafe;
+  font-weight: bold;
+  transform: scale(1.02);
+}
+
+/* 🌙 Dark Mode Support */
+body.dark-mode .react-card.matched {
+  background-color: #1e40af;
+  border-color: #60a5fa;
+}
+

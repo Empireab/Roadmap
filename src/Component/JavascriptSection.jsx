@@ -1,66 +1,83 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import './JavascriptSection.css'
 
 const jsTopics = [
-  { title: '📦 Variables & Data Types', content: 'Learn let, const, var, and types like string, number, array.', complete: true },
-  { title: '🔁 Loops & Conditions', content: 'Use for, while, if, switch to control flow.', complete: true },
-  { title: '⚙ Functions & Scope', content: 'Understand function declarations and lexical scope.', complete: false },
-  { title: '🧠 DOM Manipulation', content: 'Use JavaScript to modify HTML & CSS on the page.', complete: false },
-  { title: '🚀 ES6 Features', content: 'Master arrow functions, destructuring, spread/rest.', complete: false },
-  { title: '📡 Fetch API & Promises', content: 'Fetch data from APIs using async techniques.', complete: false }
+  { title: '📜 Variables & Data Types', content: 'Use let, const, and understand data types.', complete: true },
+  { title: '🧮 Operators & Expressions', content: 'Perform calculations and logic.', complete: true },
+  { title: '🔁 Loops & Conditionals', content: 'Control the flow of your program.', complete: false },
+  { title: '📦 Functions & Scope', content: 'Reusable code blocks and scope rules.', complete: false },
+  { title: '🧱 DOM Manipulation', content: 'Change the HTML/CSS via JS.', complete: false },
+  { title: '⚙ ES6+ Features', content: 'Modern syntax like arrow functions, destructuring, etc.', complete: false }
 ]
 
-const JavascriptSection = ({ search }) => {
+const JavascriptSection = ({ search, setMatchFound }) => {
   const [selected, setSelected] = useState(null)
-  const filtered = jsTopics.filter(item =>
-    item.title.toLowerCase().includes(search.toLowerCase())
+  const cardRefs = useRef([])
+
+  const lowerSearch = search.toLowerCase()
+
+useEffect(() => {
+  const lowerSearch = search.toLowerCase()
+
+  if (!search.trim()) {
+    setMatchFound(true) // Reset match state
+    return
+  }
+
+  const firstMatchIndex = jsTopics.findIndex(topic =>
+    topic.title.toLowerCase().includes(lowerSearch)
   )
-  const completedCount = jsTopics.filter(item => item.complete).length
-  const total = jsTopics.length
-  const percentage = Math.round((completedCount / total) * 100)
+
+  if (firstMatchIndex !== -1 && cardRefs.current[firstMatchIndex]) {
+    setMatchFound(true)
+    cardRefs.current[firstMatchIndex].scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    })
+  } else {
+    setMatchFound(false)
+  }
+}, [search, setMatchFound])
+  const completedCount = jsTopics.filter(t => t.complete).length
+  const percentage = Math.round((completedCount / jsTopics.length) * 100)
 
   return (
     <section className="js-section" id="javascript">
-      <h2 className="section-title">🟨 JavaScript Roadmap</h2>
+      <h2 className="js-section-title">📘 JavaScript Roadmap</h2>
 
-      {/* Progress Bar */}
-      <div className="progress-container">
-        <div className="progress-bar" style={{ width: `${percentage}%` }}></div>
+      <div className="js-progress-container">
+        <div className="js-progress-bar" style={{ width: `${percentage}%` }}></div>
         <p>{percentage}% Complete</p>
       </div>
 
-      {/* Roadmap Cards */}
-      <div className="cards-container">
-        {filtered.length > 0 ? (
-          filtered.map((item, index) => (
+      <div className="js-cards-container">
+        {jsTopics.map((topic, index) => {
+          const isMatch = topic.title.toLowerCase().includes(lowerSearch)
+          return (
             <div
               key={index}
-              className={`card ${item.complete ? 'completed' : ''}`}
-              onClick={() => setSelected(item)}
-              title="Click to learn more"
+              ref={el => cardRefs.current[index] = el}
+              className={`js-card ${topic.complete ? 'completed' : ''} ${isMatch && search ? 'matched' : ''}`}
+              onClick={() => setSelected(topic)}
             >
-              {item.title}
+              {topic.title}
             </div>
-          ))
-        ) : (
-          <p style={{ textAlign: 'center' }}>No matching topics found.</p>
-        )}
+          )
+        })}
       </div>
 
-      {/* Articles */}
-      <div className="blog-section">
+      <div className="js-blog-section">
         <h3>📚 Related Articles</h3>
         <ul>
-          <li><a href="#">📦 Mastering JS Variables & Scope</a></li>
-          <li><a href="#">🔁 For vs While vs Map: Which to Use?</a></li>
-          <li><a href="#">📡 How Promises & Fetch Work Together</a></li>
+          <li><a href="#">🔤 Understanding let vs const</a></li>
+          <li><a href="#">🧠 Looping Through Arrays Effectively</a></li>
+          <li><a href="#">⚡ ES6 for Beginners</a></li>
         </ul>
       </div>
 
-      {/* Modal */}
       {selected && (
-        <div className="modal-overlay" onClick={() => setSelected(null)}>
-          <div className="modal-box" onClick={(e) => e.stopPropagation()}>
+        <div className="js-modal-overlay" onClick={() => setSelected(null)}>
+          <div className="js-modal-box" onClick={(e) => e.stopPropagation()}>
             <h3>{selected.title}</h3>
             <p>{selected.content}</p>
             <button onClick={() => setSelected(null)}>Close</button>
