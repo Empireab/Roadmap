@@ -1,147 +1,92 @@
-/* Navbar Container */
+/* Updated styles for sidebar menu */
 .navbar {
   position: sticky;
   top: 0;
-  z-index: 999;
-  background: #ffffff;
+  z-index: 1000;
+  background: white;
   color: #111827;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding: 12px 20px;
   font-family: 'Segoe UI', sans-serif;
-  font-size: 17px;
-  transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* Logo */
 .logo {
   font-weight: 700;
-  font-size: 18px;
-  color: inherit;
+  font-size: 20px;
+  margin-left: 10px;
 }
 
-/* Navigation Links */
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 24px;
-}
-
-.nav-links li a {
-  color: inherit;
-  font-size: 16px;
-  font-weight: 500;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.nav-links li a:hover {
-  text-decoration: underline;
-}
-
-/* Right Controls (Toggle + Hamburger) */
-.right-controls {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-/* Toggle Button */
 .toggle-btn {
   background: #1e40af;
   border: none;
-  padding: 6px 12px;
+  padding: 6px 14px;
   font-size: 14px;
   font-weight: 500;
   border-radius: 6px;
   color: white;
   cursor: pointer;
-  transition: background 0.3s;
+  margin-top: 4px;
 }
 
-.toggle-btn:hover {
-  background: #1d4ed8;
-}
-
-/* Hamburger Icon */
 .hamburger {
-  display: none;
-  font-size: 24px;
+  font-size: 22px;
   cursor: pointer;
   background: none;
   border: none;
-  padding: 6px;
-  width: 34px;
-  height: 34px;
-  align-items: center;
-  justify-content: center;
+  padding: 4px 8px;
+  margin-top: 4px;
 }
 
-/* Dark Mode */
-body.dark-mode {
-  background: #0f172a;
-  color: #f8fafc;
+.sidebar {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: max-content;
+  padding: 16px;
+  background-color: #f0f4ff;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform 0.3s ease-in-out;
 }
 
-body.dark-mode .navbar {
-  background: #0f172a;
-  color: #f8fafc;
+.sidebar a {
+  color: #1e3a8a;
+  font-weight: bold;
+  font-size: 16px;
+  text-decoration: none;
+  transition: all 0.2s;
 }
 
-body.dark-mode .nav-links li a,
-body.dark-mode .logo {
-  color: #f8fafc;
+.sidebar a:hover {
+  color: #2563eb;
+  transform: translateX(4px);
 }
 
-body.dark-mode .toggle-btn {
-  background: #334155;
-  color: #e2e8f0;
+.sidebar.closed {
+  transform: translateX(-100%);
 }
 
-body.dark-mode .toggle-btn:hover {
-  background: #1e293b;
+/* Push main content when sidebar is open */
+body.sidebar-open main {
+  margin-left: 160px;
 }
 
-/* Mobile Responsive */
-@media (max-width: 768px) {
-  .hamburger {
-    display: flex;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    position: fixed;
-    top: 60px;
-    left: 0;
-    padding: 20px;
-    gap: 14px;
-    display: none;
-    z-index: 998;
-    width: max-content;
-    background: transparent;
-    animation: slideIn 0.3s ease forwards;
-  }
-
-  .nav-links.open {
-    display: flex;
-    margin-top: 20px;
-  }
-
-  .toggle-btn {
-    font-size: 14px;
-    padding: 6px 10px;
-  }
+/* Dark mode sidebar */
+body.dark-mode .sidebar {
+  background-color: #1e293b;
 }
 
-/* Slide In Animation */
-@keyframes slideIn {
-  from {
-    transform: translateX(-30%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0%);
-    opacity: 1;
+body.dark-mode .sidebar a {
+  color: #f1f5f9;
 }
+
+body.dark-mode .sidebar a:hover {
+  color: #38bdf8;
 }
