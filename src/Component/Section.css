@@ -80,6 +80,7 @@
 
 .html-blog-section h3 {
   margin-bottom: 15px;
+  text-transform: capitalize;
 }
 
 .html-blog-section ul {
@@ -88,11 +89,15 @@
 
 .html-blog-section li {
   margin-bottom: 10px;
+  border: solid 2px rgb(198, 171, 171);
+  padding: 15px;
+  border-radius: 20px;
 }
 
 .html-blog-section a {
   text-decoration: none;
   color: #2563eb;
+  
 }
 
 /* Modal */
