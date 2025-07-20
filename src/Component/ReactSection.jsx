@@ -5,9 +5,14 @@ const reactTopics = [
   { title: '⚛ JSX & Components', content: 'JSX lets you write HTML in JavaScript.', complete: true },
   { title: '🔄 Props & State', content: 'Props are inputs; state stores dynamic data.', complete: true },
   { title: '📦 useEffect Hook', content: 'Handles side effects like API calls.', complete: false },
+  { title: '📦 Events and Handlers', content: 'Respond to user actions like clicks or input.', complete: false },
   { title: '🧩 Component Lifecycle', content: 'Understand mounting, updating, unmounting.', complete: false },
+  { title: '🧩 Conditional Rendering', content: 'Show or hide things based on logic.', complete: false },
   { title: '🪝 Custom Hooks', content: 'Reusable logic in functional components.', complete: false },
-  { title: '📁 Routing with React Router', content: 'Navigate between views with routing.', complete: false }
+  { title: '🪝 Lists and Keys', content: 'Render multiple items using .map() and give each a unique key.', complete: false },
+  { title: '📁 Routing with React Router', content: 'Navigate between views with routing.', complete: false },
+  { title: '📁 Redux', content: 'Learn how to perform addtocart, and create a full e-commerce website', complete: false },
+  { title: '📁 And Lot More', content: 'master useState, ternary operators, callback functions, map, E.T.C', complete: false }
 ]
 
 const ReactSection = ({ search,setMatchFound  }) => {
@@ -44,7 +49,8 @@ useEffect(() => {
 
   return (
     <section className="react-section" id="react">
-      <h2 className="react-section-title">⚛ React Roadmap</h2>
+      <h1 className="react-section-title">⚛ React Roadmap</h1>
+     <span><marquee behavior="" direction="left">React is a JavaScript library for building fast and interactive user interfaces using reusable components.</marquee></span>
 
       <div className="react-progress-container">
         <div className="react-progress-bar" style={{ width: `${percentage}%` }}></div>
@@ -69,11 +75,14 @@ useEffect(() => {
       </div>
 
       <div className="react-blog-section">
-        <h3>📚 Related Articles</h3>
+       <h3><center>📚 At the end of the HTML class, you should be able to do the following</center></h3>
         <ul>
-          <li><a href="#">🔍 Understanding JSX in React</a></li>
-          <li><a href="#">🧠 When to Use useEffect</a></li>
-          <li><a href="#">🚀 Beginner’s Guide to React Router</a></li>
+          <li><p>🔍 Build interactive user interfaces using components and state.</p></li>
+          <li><p>🧠 Break a page into reusable components for better structure and readability.</p></li>
+          <li><p>🚀 Handle user input and form data in a smart and clean way.</p></li>
+          <li><p>🚀 Navigate between multiple pages without reloading using React Router..</p></li>
+          <li><p>🚀 Connect your frontend to APIs to display live or dynamic data.</p></li>
+          <li><p>🚀 can build any types of website from scratch to finsih</p></li>
         </ul>
       </div>
 

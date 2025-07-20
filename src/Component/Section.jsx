@@ -80,10 +80,10 @@ const Section = ({ search, setMatchFound }) => {
       <div className="html-blog-section">
         <h3><center>📚 At the end of the HTML class, you should be able to do the following</center></h3>
         <ul>
-          <li><a href="#">📝 Build a complete webpage layout using proper tags like header, nav, main, and footer.</a></li>
-          <li><a href="#">💡 Add text, images, links, and lists to any section of your page.</a></li>
-          <li><a href="#">⚡ Create interactive forms to collect user input (like signups or contact forms).</a></li>
-          <li><a href="#">⚡ Write clean, organized, and accessible HTML that is SEO-friendly and screen reader–friendly. (like signups or contact forms).</a></li>
+          <li><p>Build a complete webpage layout using proper tags like header, nav, main, and footer.</p></li>
+          <li><p>💡 Add text, images, links, and lists to any section of your page.</p></li>
+          <li><p>⚡ Create interactive forms to collect user input (like signups or contact forms).</p></li>
+          <li><p>⚡ Write clean, organized, and accessible HTML that is SEO-friendly and screen reader–friendly. (like signups or contact forms).</p></li>
         </ul>
       </div>
 

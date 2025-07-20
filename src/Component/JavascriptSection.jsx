@@ -6,8 +6,16 @@ const jsTopics = [
   { title: '🧮 Operators & Expressions', content: 'Perform calculations and logic.', complete: true },
   { title: '🔁 Loops & Conditionals', content: 'Control the flow of your program.', complete: false },
   { title: '📦 Functions & Scope', content: 'Reusable code blocks and scope rules.', complete: false },
+  { title: '📦 Events', content: 'Code that runs when something happens (click, hover, submit, etc.)', complete: false },
+  { title: '📦   Arrays', content: 'Store multiple values in one variable.', complete: false },
+  { title: '📦 Forms and Inputs', content: 'Read or set values in form fields using JavaScript..', complete: false },
+  { title: '📦    Objects', content: 'Store related data using key–value pairs.', complete: false },
   { title: '🧱 DOM Manipulation', content: 'Change the HTML/CSS via JS.', complete: false },
-  { title: '⚙ ES6+ Features', content: 'Modern syntax like arrow functions, destructuring, etc.', complete: false }
+  { title: '🧱  Basic Validation', content: 'Check if users filled out fields correctly before submitting..', complete: false },
+  { title: '⚙ ES6+ Features', content: 'Modern syntax like arrow functions, destructuring, etc.', complete: false },
+  { title: '⚙  Timers', content: 'Use setTimeout() or setInterval() to run code after a delay or repeatedly.', complete: false },
+  { title: '⚙  Intro to JSON', content: 'JavaScript Object Notation (JSON) is used to store and send data, especially when working with APIs.', complete: false },
+  { title: '⚙  And Lot More', content: 'classlist, return HTML, localStorage, E.T.C', complete: false }
 ]
 
 const JavascriptSection = ({ search, setMatchFound }) => {
@@ -43,7 +51,8 @@ useEffect(() => {
 
   return (
     <section className="js-section" id="javascript">
-      <h2 className="js-section-title">📘 JavaScript Roadmap</h2>
+      <h1 className="js-section-title">📘 JavaScript Roadmap</h1>
+      <span><marquee behavior="scroll" direction="left">JavaScript is the language that adds interactivity and logic to your website.</marquee></span>
 
       <div className="js-progress-container">
         <div className="js-progress-bar" style={{ width: `${percentage}%` }}></div>
@@ -67,11 +76,14 @@ useEffect(() => {
       </div>
 
       <div className="js-blog-section">
-        <h3>📚 Related Articles</h3>
+        <h3><center>📚 At the end of the CSS class, you should be able to do the following</center></h3>
         <ul>
-          <li><a href="#">🔤 Understanding let vs const</a></li>
-          <li><a href="#">🧠 Looping Through Arrays Effectively</a></li>
-          <li><a href="#">⚡ ES6 for Beginners</a></li>
+          <li><p>🔤 Make your webpage interactive (e.g., buttons, forms, dropdowns).</p></li>
+          <li><p>🧠 Dynamically update content without reloading the page.</p></li>
+          <li><p>⚡ Validate user input to prevent empty or incorrect form submissions.</p></li>
+          <li><p>⚡ Create smart logic and conditions using variables, loops, and functions.</p></li>
+          <li><p>⚡ Work with real data (JSON/APIs) and display it on your website..</p></li>
+          <li><p>⚡ Build a claen dynamic fully functionimg website of any types</p></li>
         </ul>
       </div>
 

@@ -62,9 +62,20 @@
   padding: 20px;
   border-radius: 12px;
 }
-
-.js-blog-section a {
-  text-decoration: none;
+.js-blog-section li{
+   margin-bottom: 10px;
+  border: solid 2px rgb(198, 171, 171);
+  padding: 15px;
+  border-radius: 20px;
+  transition: 1.2s ease;
+}
+.js-blog-section li:hover{
+  transform: scale(1.08);
+  font-weight: bolder;
+  border: solid 5px;
+}
+.js-blog-section p {
+ 
   color: #047857;
 }
 

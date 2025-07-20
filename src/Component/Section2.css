@@ -11,6 +11,7 @@
   font-size: 28px;
   color: #be185d;
   margin-bottom: 30px;
+  
 }
 
 .css-progress-container {
@@ -67,11 +68,25 @@
   background-color: #fff7fb;
   padding: 20px;
   border-radius: 12px;
+  
+}
+.css-blog-section li{
+  margin-bottom: 10px;
+  border: solid 2px rgb(198, 171, 171);
+  padding: 15px;
+  border-radius: 20px;
+  transition: 1.2s ease;
+}
+.css-blog-section li:hover{
+   transform: scale(1.08);
+  font-weight: bolder;
+  border: solid 5px;
 }
 
-.css-blog-section a {
-  text-decoration: none;
+.css-blog-section p {
+
   color: #db2777;
+
 }
 
 .css-modal-overlay {
