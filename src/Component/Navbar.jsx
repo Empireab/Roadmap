@@ -23,7 +23,7 @@ const Navbar = () => {
             {menuOpen ? '❌' : '☰'}
           </button>
         </div>
-        <h2 className="logo">🚀 FullStack Roadmap</h2>
+        <h2 className="logo">🚀 FullStack Roadmap <br /> <span>FRONTEND</span></h2>
         <button className="toggle-btn" onClick={toggleMode}>
           {darkMode ? '🌞 Light' : '🌙 Dark'}
         </button>
