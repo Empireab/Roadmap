@@ -42,7 +42,7 @@ const Navbar = () => {
           </button>
         </div>
         <h2 className="logo">
-          🚀 FullStack Roadmap <br />
+          🚀 FullStack Roadmaps <br />
           <span>FRONTEND</span>
         </h2>
         <button className="toggle-btn" onClick={toggleMode}>
