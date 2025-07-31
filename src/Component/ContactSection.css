@@ -1,0 +1,52 @@
+.contact-section {
+  padding: 60px 20px;
+  background-color: var(--box-bg);
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.contact-heading {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--text);
+}
+
+.contact-text {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  color: var(--text);
+}
+
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.contact-btn {
+  text-decoration: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.contact-btn.whatsapp {
+  background-color: #25d366;
+  color: white;
+}
+
+.contact-btn.whatsapp:hover {
+  background-color: #1ebc59;
+}
+
+.contact-btn.email {
+  background-color: #2563eb;
+  color: white;
+}
+
+.contact-btn.email:hover {
+  background-color: #1e40af;
+}

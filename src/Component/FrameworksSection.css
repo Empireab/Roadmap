@@ -1,0 +1,26 @@
+.frameworks-section {
+  padding: 60px 20px;
+  background-color: var(--box-bg);
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.frameworks-heading {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--text);
+}
+
+.frameworks-text {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  color: var(--text);
+}
+
+.frameworks-list {
+  list-style-type: none;
+  padding-left: 0;
+  line-height: 2;
+  font-size: 1.1rem;
+  color: var(--text);
+}
