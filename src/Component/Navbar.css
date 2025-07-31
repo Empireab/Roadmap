@@ -62,6 +62,7 @@
   font-size: 16px;
   text-decoration: none;
   transition: all 0.2s;
+  margin-top: 15px;
 }
 
 .sidebar a:hover {
