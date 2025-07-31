@@ -8,11 +8,22 @@ const Navbar = () => {
   const [coursesOpen, setCoursesOpen] = useState(false);
   const navigate = useNavigate();
 
+  // ✅ Load dark mode from localStorage on mount
+  useEffect(() => {
+    const savedMode = localStorage.getItem('darkMode');
+    if (savedMode === 'true') {
+      setDarkMode(true);
+    }
+  }, []);
+
+  // ✅ Apply dark/light class to body and save to localStorage
   useEffect(() => {
     const classList = [];
     if (darkMode) classList.push('dark-mode');
     if (menuOpen) classList.push('sidebar-open');
+
     document.body.className = classList.join(' ');
+    localStorage.setItem('darkMode', darkMode);
   }, [darkMode, menuOpen]);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
@@ -42,7 +53,7 @@ const Navbar = () => {
           </button>
         </div>
         <h2 className="logo">
-          🚀 FullStack Roadmaps <br />
+          🚀 FullStack Roadmap <br />
           <span>FRONTEND</span>
         </h2>
         <button className="toggle-btn" onClick={toggleMode}>
